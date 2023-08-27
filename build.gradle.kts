@@ -10,7 +10,16 @@ version = "1.0.0"
 
 repositories { mavenCentral() }
 
-kotlin { jvmToolchain(8) }
+gradlePlugin {
+    plugins {
+        register("gitHooks") {
+            id = "io.github.thibseisel.githooks"
+            implementationClass = "io.github.thibseisel.githooks.GitHooksPlugin"
+        }
+    }
+}
+
+kotlin { jvmToolchain(11) }
 
 spotless {
     kotlin { ktfmt().kotlinlangStyle() }
