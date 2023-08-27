@@ -5,24 +5,17 @@ plugins {
 }
 
 group = "io.github.thibseisel"
+
 version = "1.0.0"
 
-repositories {
-    mavenCentral()
-}
+repositories { mavenCentral() }
 
-kotlin {
-    jvmToolchain(8)
-}
+kotlin { jvmToolchain(8) }
 
 spotless {
-    kotlin {
-        ktfmt().kotlinlangStyle()
-    }
+    kotlin { ktfmt().kotlinlangStyle() }
 
-    kotlinGradle {
-        ktfmt().kotlinlangStyle()
-    }
+    kotlinGradle { ktfmt().kotlinlangStyle() }
 
     format("misc") {
         target("**/*.toml", "**/*.properties")
