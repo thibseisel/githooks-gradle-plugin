@@ -21,6 +21,17 @@ gradlePlugin {
 
 kotlin { jvmToolchain(11) }
 
+tasks.withType<Test>().configureEach {
+    useJUnitPlatform()
+}
+
+dependencies {
+    testImplementation(libs.kotest.runner.junit5)
+    testImplementation(libs.kotest.assertions.core)
+    testImplementation(libs.mockk)
+
+}
+
 spotless {
     kotlin { ktfmt().kotlinlangStyle() }
 
